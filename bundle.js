@@ -74,44 +74,51 @@ var animals = __webpack_require__(1);
 var url = __webpack_require__(2);
 console.log("do a thing");
 
-var createButton = function (name){
-    var a = $('<a>');
-    a.attr('href','#');
-    a.attr('data-animal', name);
-    a.addClass('button text-center');
-    var div = $('<div class="text-center">');
-    a.html(name)
-    return div.append(a);
-}
+var createButton = function(name) {
+  var a = $("<a>");
+  a.attr("href", "#");
+  a.attr("data-animal", name);
+  a.addClass("button text-center");
+  var div = $('<div class="text-center">');
+  a.html(name);
+  return div.append(a);
+};
 
-var appendButton = function (btn){
-    $('#buttons').append(btn);
-}
+var appendButton = function(btn) {
+  $("#buttons").append(btn);
+};
 
-animals
-    .map(createButton)
-    .map(appendButton);
+animals.map(createButton).map(appendButton);
 
-$('#buttons').on('click', '.button', function(){
-    url.setQuery($(this).attr('data-animal'));
-    url.request();
+$("#buttons").on("click", ".button", function() {
+  url.setQuery($(this).attr("data-animal"));
+  url.request();
 });
 
-$('.get-animal').on('keyup', function(ev){
-    if(ev.keyCode === 13){
-        [ev.target.value]
-            .map(createButton)
-            .map(appendButton);
-        $(this).val("");
-    }
+$(".get-animal").on("keyup", function(ev) {
+  if (ev.keyCode === 13) {
+    [ev.target.value].map(createButton).map(appendButton);
+    $(this).val("");
+  }
 });
 
-$('.get-animal-button').on('click', function(){
-    [$('.get-animal').val()]
-        .map(createButton)
-        .map(appendButton);
-        $('.get-animal').val("");
+$(".get-animal-button").on("click", function() {
+  [$(".get-animal").val()].map(createButton).map(appendButton);
+  $(".get-animal").val("");
 });
+
+$("#animals").on("click", ".gif", function() {
+  ($(this).attr("data-state") === "still"
+    ? () => {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      }
+    : () => {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      })();
+});
+
 
 /***/ }),
 /* 1 */
@@ -168,9 +175,15 @@ module.exports = {
             data.forEach(appendToAnimals);
 
             function appendToAnimals(el){
+
                 var div = $('<div class = "card" style="width: 20rem">')
-                var img = $('<img class = "card-img-top">');
-                img.attr('src', el.images.fixed_height.url);
+                var img = $('<img class = "card-img-top gif">');
+                img.attr({
+                  'src': el.images.fixed_height.url,
+                  'data-still': el.images.fixed_height_still.url,
+                  'data-animate': el.images.fixed_height.url,
+                  'data-state': 'animate'                  
+                });
                 
                 var divBody = $('<div class="card-body">');
                 var h4 = $('<h4 class="card-title">');
@@ -198,6 +211,9 @@ module.exports = {
         }
       }
 }
+
+
+
 
 /***/ })
 /******/ ]);

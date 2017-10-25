@@ -34,9 +34,15 @@ module.exports = {
             data.forEach(appendToAnimals);
 
             function appendToAnimals(el){
+
                 var div = $('<div class = "card" style="width: 20rem">')
-                var img = $('<img class = "card-img-top">');
-                img.attr('src', el.images.fixed_height.url);
+                var img = $('<img class = "card-img-top gif">');
+                img.attr({
+                  'src': el.images.fixed_height.url,
+                  'data-still': el.images.fixed_height_still.url,
+                  'data-animate': el.images.fixed_height.url,
+                  'data-state': 'animate'                  
+                });
                 
                 var divBody = $('<div class="card-body">');
                 var h4 = $('<h4 class="card-title">');
@@ -64,3 +70,5 @@ module.exports = {
         }
       }
 }
+
+
