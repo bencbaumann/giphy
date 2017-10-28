@@ -30,10 +30,10 @@ module.exports = {
           if (httpRequest.status === 200) {
             var data = JSON.parse(httpRequest.responseText).data;
             
-            $('#animals').html("");
-            data.forEach(appendToAnimals);
+            $('#gifs').html("");
+            data.forEach(appendToGifs);
 
-            function appendToAnimals(el){
+            function appendToGifs(el){
 
                 var div = $('<div class = "card" style="width: 20rem">')
                 var img = $('<img class = "card-img-top gif">');
@@ -61,7 +61,8 @@ module.exports = {
 
                 var divCardWrapper = $('<div class="card-wrapper">');
                 divCardWrapper.append(div);
-                $('#animals').append(divCardWrapper);
+                console.log(divCardWrapper);
+                $('#gifs').append(divCardWrapper);
             }
             
           } else {

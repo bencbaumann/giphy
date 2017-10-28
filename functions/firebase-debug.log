@@ -1,0 +1,68 @@
+[debug] [2017-10-26T21:09:28.504Z] ----------------------------------------------------------------------
+[debug] [2017-10-26T21:09:28.506Z] Command:       /Users/benjaminbaumann/.nvm/versions/node/v7.0.0/bin/node /Users/benjaminbaumann/.nvm/versions/node/v7.0.0/bin/firebase deploy
+[debug] [2017-10-26T21:09:28.506Z] CLI Version:   3.13.1
+[debug] [2017-10-26T21:09:28.506Z] Platform:      darwin
+[debug] [2017-10-26T21:09:28.507Z] Node Version:  v7.0.0
+[debug] [2017-10-26T21:09:28.507Z] Time:          Thu Oct 26 2017 17:09:28 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:28.507Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-26T21:09:28.521Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-26T21:09:28.521Z] > authorizing via signed-in user
+[debug] [2017-10-26T21:09:28.522Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-26T21:09:28.523Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/f6b9e8YzUs4vGDNmPtzAyYdX1qEXeFatu8bKvv1oFMA',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Oct 26 2017 17:09:28 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:28.807Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T21:09:28.811Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/giphy-96d84  
+ Thu Oct 26 2017 17:09:28 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:29.220Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T21:09:29.221Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/giphy-96d84/tokens  
+ Thu Oct 26 2017 17:09:29 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:29.729Z] <<< HTTP RESPONSE 200
+[info] 3
+[info] 
+[info] === Deploying to 'giphy-96d84'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2017-10-26T21:09:30.317Z] >>> HTTP REQUEST PUT https://giphy-96d84.firebaseio.com/.settings/rules.json?dryRun=true {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+} 
+ Thu Oct 26 2017 17:09:30 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:30.652Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax is valid
+[debug] [2017-10-26T21:09:30.655Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "firebase-admin": "~5.4.0",
+    "firebase-functions": "^0.7.0",
+    "request": "^2.83.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-10-26T21:09:30.657Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/giphy-96d84?view=CONSUMER_VIEW  
+ Thu Oct 26 2017 17:09:30 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:30.657Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/giphy-96d84?view=CONSUMER_VIEW  
+ Thu Oct 26 2017 17:09:30 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:31.267Z] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-10-26T21:09:31.301Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2017-10-26T21:09:31.302Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/giphy-96d84  
+ Thu Oct 26 2017 17:09:31 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:31.303Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/giphy-96d84/apiKeys  
+ Thu Oct 26 2017 17:09:31 GMT-0400 (EDT)
+[debug] [2017-10-26T21:09:31.740Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-26T21:09:31.795Z] <<< HTTP RESPONSE 200

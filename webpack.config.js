@@ -5,7 +5,7 @@ module.exports = {
   entry: "./assets/js/index.js",
   devtool: "source-map",
   output: {
-    filename: "bundle.js",
+    filename: "./public/bundle.js",
     path: path.resolve(__dirname)
   },
   module: {
@@ -23,5 +23,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin("styles.css")]
+  plugins: [new ExtractTextPlugin("./public/styles.css")]
 };
